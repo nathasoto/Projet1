@@ -6,6 +6,6 @@
 </head>
 <body>
 <?php
-echo"Bonjour";?>
+echo"Bonjour ça va?" ;?>
 </body>
 </html>
