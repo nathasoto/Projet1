@@ -7,10 +7,9 @@ $URL1= "img/1.Peugeot208.jpg";
 $URL2= "img/2.Peugeot208.jpg";
 $URL3= "img/3.Peugeot208.jpg";
 //echo " Prix $Produit  = $Prix ";
-?>
 
-<body>
-<?php include 'header.php'; ?>
+include "templates/header.php"; 
+?>
 
 <h2>Produits</h2>
 <div id="carouselExampleIndicators" class="carousel slide">
@@ -47,5 +46,5 @@ $URL3= "img/3.Peugeot208.jpg";
   </div>
 </div>
 
-<?php include 'footer.php';?>
-</body>
+<?php include "templates/footer.php";?>
+
