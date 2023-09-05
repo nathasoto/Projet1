@@ -12,6 +12,7 @@ $Logo= "img/Logo.PNG";
     <!-- bootstrap ICONS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/style.css">
+    <?php include "my-function.php";?>
     <title>Items</title>
 </head>
 <body>
@@ -29,7 +30,7 @@ $Logo= "img/Logo.PNG";
               <a class="nav-link active" aria-current="page" href="multidimensional-catalog.php">Produit</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="simple-catalog.php">Contact</a>
+              <a class="nav-link" href="catalog-with-keys.php">Contact</a>
             </li>
           </ul>
           <form class="d-flex" role="search">
