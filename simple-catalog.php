@@ -1,5 +1,5 @@
 <?php 
-
+include "function/my-function.php";
 $products = ["iphone","ipad","imac"];// create array
 
 /*sort($products); //sort array 

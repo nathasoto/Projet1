@@ -1,47 +1,55 @@
 <?php
+include "function/my-function.php";
+
 $products = [
-"iphone" => [
-"name" => "iPhone",
-"price" => 450,
-"weight" => 200,
-"discount" => 10,
-"picture_url" => "https://assets.codepen.io/6093409/sprocket.svg"
+"Limoncha" => [
+"name" => "LIMONCHA BIO",
+"price" => 14.00,
+"description" => "Thés vert et noir, riz grillé, amande et citron",
+"discount" => 5,
+"availability" => true,
+"picture_url" => "img/LIMONCHA.jpg"
 ],
-"ipad" => [
-"name" => "iPad",
-"price" => 450,
-"weight" => 400,
-"discount" => null,
-"picture_url" => "https://assets.codepen.io/6093409/sprocket.svg"
+"Hamman" => [
+  "name" => "THÉ DU HAMMAM",
+  "price" => 10.50,
+  "description" => "Thé vert parfumé - Fruité & Floral",
+  "discount" => null,
+  "availability" => true,
+  "picture_url" => "img/HAMMAM.jpg"
+],
+"Moines" => [
+  "name" => "THÉ DES MOINES",
+  "price" => 10.90,
+  "description" => "Thés noir et vert parfumés - Floral",
+  "discount" => 2,
+  "availability" => false,
+  "picture_url" => "img/MOINES.jpg"
 ],
 ];
 
 include "templates/header.php"; 
 ?>
-<div>
-<h3><?php echo $products['iphone']['name'];?></h3>
-<p>Prix : <?php echo formatPrice($products['iphone']['price']);?></p><!-- call the function formatPrice-->
-<p>Prix HT : <?php echo formatPrice(priceExcludingVAT($products['iphone']['price']));?></p>
-<p>Prix TCC avec Discount : <?php echo discountedPrice($products['iphone']['price'], $products['iphone']['discount']);?></p>
-<img src=<?php echo $products['iphone']['picture_url'];?>>
+
+<div class="shop">
+
+  <?php foreach ($products as $prod):?>
+    <div class="card" style="width: 18rem;">
+      <img src=<?php echo $prod['picture_url'];?> class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title"><?php echo $prod['name'];?></h5>  
+        <p class="card-text"><?php echo $prod['description'];?></p>
+        <p>Prix TCC: <?php echo formatPrice(number_format($prod['price'], 2, ',', ' '));?></p><!-- call the function formatPrice et number_format francesa--> 
+        <p>Prix HT : <?php echo formatPrice(number_format(priceExcludingVAT($prod['price']), 2, ',', ' '));?></p> 
+        <p>Prix TCC avec Discount : <?php echo discountedPrice($prod['price'], $prod['discount']);?></p> 
+        <button <?php if(!$prod['availability']): ?>disabled <?php endif; ?>>
+          Acheter
+        </button>
+      </div>
+    </div>
+  <?php endforeach?>
+
 </div>
-<div>
-<h3><?php echo $products['ipad']['name'];?></h3>
-<p>Prix TTC : <?php echo formatPrice($products['ipad']['price']);?></p><!-- call the function formatPrice-->
-<p>Prix HT : <?php echo formatPrice(priceExcludingVAT($products['ipad']['price']));?></p>
-<p>Prix TCC avec Discount : <?php echo discountedPrice($products['ipad']['price'], $products['ipad']['discount']);?></p>
-<img src=<?php echo $products['ipad']['picture_url'];?>>
-</div>
 
-<?php
-foreach($products as $k1 => $prod){
-    echo"$k1 <br/>";
-    foreach($prod as $k2 => $detalle){
-      echo"$k2 = $detalle <br/> ";
-    }
-
-}
-
-?>
 <?php include "templates/footer.php";?>
 

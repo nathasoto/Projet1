@@ -1,48 +1,29 @@
 
+<?php 
+include "function/my-function.php";
 
-<?php
-$Produit = "Peugeot 208";
-$Prix = 20000;
-$URL1= "img/1.Peugeot208.jpg";
-$URL2= "img/2.Peugeot208.jpg";
-$URL3= "img/3.Peugeot208.jpg";
+$Produit = "Thé_limoncha";
+$Prix = 14;
+$URL1= "img/LIMONCHA2.jpg";
+
 //echo " Prix $Produit  = $Prix ";
 
 include "templates/header.php"; 
 ?>
 
-<h2>Produits</h2>
-<div id="carouselExampleIndicators" class="carousel slide">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-  </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src=<?php echo $URL1?> class="d-block w-100" alt="...">
+<div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src=<?php echo $URL1?> class="img-fluid rounded-start" alt="thé">
     </div>
-    <div class="carousel-item">
-      <img src=<?php echo $URL3?> class="d-block w-100" alt="...">
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><?php echo $Produit?></h5>
+        <p>Une nouvelle recette bio, autour d’un mélange de thés vert et noir aux influences japonaises où les parfums torréfiés du riz grillé fusionnent parfaitement avec ceux de l'amande et du citron.</p>
+        <p class="card-text"><?php echo "Prix : $Prix €"?></p>
+        <a href="#" class="btn btn-primary">Ajouter au Panier</a>
+      </div>
     </div>
-    <div class="carousel-item">
-      <img src=<?php echo $URL2?> class="d-block w-100" alt="...">
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-<div class="card">
-  <div class="card-body">
-    <h5 class="card-title"><?php echo $Produit ?></h5>
-    <p class="card-text"><?php echo "Prix : $Prix"?></p>
-    <a href="#" class="btn btn-primary">Acheter</a>
   </div>
 </div>
 

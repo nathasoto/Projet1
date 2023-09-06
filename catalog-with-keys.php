@@ -1,4 +1,5 @@
 <?php
+include "function/my-function.php";
 $iphone = [
     "name" => "iPhone",
     "price" => 45000,
