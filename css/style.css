@@ -20,24 +20,32 @@ padding: 0.625rem;
 }
 .card{
     margin: auto;
-    width: 37.5rem;
+    width: 500px;
 }
 body{
-    display: flex; /*colocar footer abajo*/
-    flex-direction: column;/*colocar footer abajo*/
+    display: grid; /*colocar footer abajo viewport*/
     min-height: 100vh; /*colocar footer abajo viewport*/
+    grid-template-rows: auto 1fr auto; /*colocar footer abajo viewport*/
 }
-.logo{
-    margin: auto;
-    padding-left: 12.5rem;
-    padding-right: 12.5rem;
+.logo{ 
+    padding-right: 37.5rem;
 }
 
 .shop{
-    display: flex; 
+    display: flex; /* */
+    padding: 3.125rem;
+    margin-left: 12.5rem;
+    margin-right: 12.5rem;
 }
 .card{ 
     max-width: 18.75rem;
    
 }
-
+.quantite{
+    border-radius: .625rem;
+    padding: .3125rem;
+    margin-bottom: .625rem;
+}
+.button{
+    border-radius: .625rem;
+}

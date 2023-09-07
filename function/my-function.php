@@ -16,7 +16,9 @@ function discountedPrice($prix, $discount){//return prix remisé
    if($discount === null){
     echo " without discount ";
    }
-   else{
-    return formatPrice(number_format($prix - $discount, 2, ',', ' ')); 
-   }
+    return $prix -($prix * ($discount/100));
+   
+}
+function articles (){
+
 }
