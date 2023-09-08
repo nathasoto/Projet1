@@ -1,15 +1,17 @@
 <?php
+
 function formatPrice( $prix){//add €
- echo "$prix €";
+  $prix1 = number_format($prix, 2, ',', ' ');
+  echo "$prix1 €";
 }
-function formatPrice2(float $prix ):string  {//teacher
-    return $prix . ' €';
-  }
+// function formatPrice2(float $prix ):string  {//teacher
+//     return $prix . ' €';
+//   }
 function addTVA(float $prix ):float  {
     return $prix * 1.2;
   }
 function priceExcludingVAT($prix){//return prix TH
-    return round( $ht = (100 * $prix) / (100 + 20)); //round por los numeros despues de la coma
+    return $ht = (100 * $prix) / (100 + 20); 
 }
 
 function discountedPrice($prix, $discount){//return prix remisé
@@ -19,6 +21,4 @@ function discountedPrice($prix, $discount){//return prix remisé
     return $prix -($prix * ($discount/100));
    
 }
-function articles (){
 
-}

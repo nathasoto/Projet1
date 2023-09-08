@@ -2,9 +2,15 @@
 include "function/my-function.php";
 include "function/articles.php";
 include "templates/header.php"; 
-?>
 
 
+ $items = get_product($_POST['id_produit']);
+ //echo $items[0];
+ //echo ($_POST['id_produit']);
+ $Total = $items[1] * $_POST['cantidad'];
+ 
+ 
+ ?>
 
 <table class="table">
   <thead>
@@ -18,20 +24,52 @@ include "templates/header.php";
   </thead>
   <tbody>
     <tr>
-      <th scope="row">Produit</th>
-      <td><?php echo ($_POST['title']);?></td>
-      <td>52</td>
-      <td>15165</td>
-      <td>15165</td>
+      <th scope="row"></th>
+      <td><?php echo $items[0]?></td>
+      <td><?php echo  formatPrice($items[1])?></td> 
+      <td><?php echo $_POST['cantidad']?> </td>
+      <td><?php echo formatPrice($Total);?></td>
     </tr>
     <tr>
       <th scope="row"></th>
-      <td>45</td>
-      <
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      
     </tr>
     <tr>
       <th scope="row"></th>
-      <td>16</td>
+      <td></td>
+      <td></td>
+      <td>Total HT</td>
+      ><td><?php echo formatPrice(priceExcludingVAT($Total));?></td>
+    </tr>
+    <tr>
+      <th scope="row"></th>
+      <td></td>
+      <td></td>
+      <td>TVA</td>
+      <td><?php echo formatPrice($Total - priceExcludingVAT($Total));?></td>
+    </tr>
+    <tr>
+      <th scope="row"></th>
+      <td></td>
+      <td></td>
+      <td>Choix du transporteur</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th scope="row"></th>
+      <td></td>
+      <td></td>
+
+      <td><select class= "quantite" name="trasporteur" id="trasporteur">
+                  <option value="1">La poste</option>
+                  <option value="2">Relais colis</option>
+                </select></td>
+      <td><button>valider</button></td>
+      
     </tr>
   </tbody>
 </table>
