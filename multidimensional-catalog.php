@@ -17,8 +17,8 @@ include "templates/header.php";
         <div class="card-body">
           <h5 class="card-title"><?php echo $prod['name'];?></h5>  
           <p class="card-text"><?php echo $prod['description'];?></p>
-          <p><?php echo formatPrice($prod['price']);?> TTC <?php if ($prod['discount'] != null ) echo '-'. $prod['discount'].'%'; ?></p><!-- call the function formatPrice et number_format francesa--> 
-          <strong><p> <?php if ($prod['discount'] != null ) echo ' TTC'.formatPrice(discountedPrice($prod['price'], $prod['discount'])); ?></p> </strong>
+          <p class="descuento"><?php if ($prod['discount'] != null ): echo formatPrice($prod['price']).' TTC ';?></p><p class = "discount"><?php FormatDiscounted($prod['discount'])?></p><?php endif; ?>
+          <strong><p><?php echo ' TTC'.formatPrice(discountedPrice($prod['price'], $prod['discount'])); ?></p> </strong>
           
           <form action="cart.php" method="post">
 
@@ -34,6 +34,7 @@ include "templates/header.php";
                   <option value="2">2</option>
                   <option value="3">3</option>
                   <option value="4">4</option>
+                  <option value="5">5</option>
                 </select>
               
               <input type="hidden" name="id_produit" value="<?php echo $prod["id"]?>">

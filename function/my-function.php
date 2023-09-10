@@ -1,6 +1,6 @@
 <?php
 
-function formatPrice( $prix){//add €
+function formatPrice($prix){//add €
   $prix1 = number_format($prix, 2, ',', ' ');
   echo "$prix1 €";
 }
@@ -15,10 +15,37 @@ function priceExcludingVAT($prix){//return prix TH
 }
 
 function discountedPrice($prix, $discount){//return prix remisé
+
    if($discount === null){
-    echo " without discount ";
+    return $prix;
+
    }
     return $prix -($prix * ($discount/100));
    
+}
+function FormatDiscounted($discount){
+   echo " -$discount %";
+}
+
+function Total(array $items, int $cantidad):float{
+
+  if($items[3] != null){
+    $Total = discountedPrice($items[1], $items[3]) * $cantidad;
+    return $Total;
+  } 
+    $Total = $items[1] * $cantidad;
+    return $Total;
+
+}
+function fraisdePort(int $weight,int $cantidad, float $total):float{
+ $weightTotal = $weight * $cantidad;
+  if($weightTotal <= 500){
+   return 5;
+  }
+  if($weightTotal > 500 && $weightTotal <= 2000 ){
+    return  $total * 0.10 ;     
+  }
+  return 0;
+  
 }
 

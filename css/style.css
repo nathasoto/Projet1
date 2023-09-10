@@ -49,3 +49,12 @@ body{
 .button{
     border-radius: .625rem;
 }
+.discount{
+    color: red;
+}
+.descuento{
+    float: left;
+    text-decoration: line-through;
+    color: red;
+}
+

@@ -6,7 +6,7 @@ function getproduct(){
       "id" => "lim1",
       "name" => "LIMONCHA BIO",
       "price" => 100,00,
-      "weight" => 200,
+      "weight" => 500,
       "description" => "Thés vert et noir, riz grillé, amande et citron",
       "discount" => 20,
       "availability" => true,
@@ -41,11 +41,28 @@ function get_product($id_produit){
    foreach(getproduct() as $prod){
 
       if($prod["id"] === $id_produit){
-        $items = [$prod["name"],$prod["price"],$prod["description"],$prod["discount"],$prod["availability"],$prod["picture_url"]]; 
+        $items = [$prod["name"],$prod["price"],$prod["description"],$prod["discount"],$prod["availability"],$prod["picture_url"],$prod["id"],$prod["weight"]]; 
         return $items;
         
       } 
     }
   }
 
+function get_transporteurs(){
+
+  return $transporteurs = [
+    [
+     "id" => 1542,
+     "nametransport" => "La poste"
+    ]
+    ,
+    [
+      "id" => 515,
+      "nametransport" => "Relais colis"
+    ]
+  ];
+  
+}
+
 ?>
+

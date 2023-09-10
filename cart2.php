@@ -4,9 +4,7 @@ include "function/articles.php";
 include "templates/header.php"; 
 
 $items = get_product($_POST['id_produit']);
- //echo $items[0];
- //echo ($_POST['id_produit']);
- ?>
+?>
 
 <table class="table table-borderless">
   
@@ -52,20 +50,26 @@ $items = get_product($_POST['id_produit']);
       <th scope="row"></th>
       <td></td>
       <td></td>
-      
-      <form action="cart2.php" method="post">
-      <input type="hidden" name="id_produit" value="<?php echo $_POST['id_produit']?>">
-      <input type="hidden" name="cantidad" value="<?php echo $_POST['cantidad']?>">
-      <input type="hidden" name="weight" value="<?php echo $items[7]?>">
-      <td><label for="trasporteur">Choix du transporteur : </label>
-            <select class= "quantite" name="trasporteur" id="trasporteur">
-                    <?php foreach (get_transporteurs() as $transpor): ?>
-                    <option value="<?php echo $transpor["nametransport"]?>"><?php echo $transpor["nametransport"]?></option>
-                    <?php endforeach?>
-                    </select></td>
-          
-      <td><input class ="button" type="submit" name="submit" value="VALIDER"></td>
-      </form> 
+      <td></td>
+      <td></td>
+    </tr>
+    <th scope="row"></th>
+      <td></td>
+      <td></td>
+      <td><strong><?php echo $_POST['trasporteur']?></strong></td>
+      <td></td>
+    </tr>
+    <th scope="row"></th>
+      <td></td>
+      <td></td>
+      <td>TRANSPORT</td>
+      <td><?php echo formatPrice(fraisdePort($items[7],$_POST['cantidad'], Total($items, $_POST['cantidad'])))?></td>
+    </tr>
+    <th scope="row"></th>
+      <td></td>
+      <td></td>
+      <td><strong>Total TCC </strong></td>
+      <td><strong><?php echo formatPrice(Total($items, $_POST['cantidad'] )+ fraisdePort($items[7],$_POST['cantidad'], Total($items, $_POST['cantidad'])))?></strong></td>
     </tr>
   </tbody>
 </table>
