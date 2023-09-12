@@ -53,7 +53,7 @@ $items = get_product($_POST['id_produit']);
       <td></td>
       <td></td>
       
-      <form action="cart2.php" method="post">
+      <form action="cart.php" method="post">
       <input type="hidden" name="id_produit" value="<?php echo $_POST['id_produit']?>">
       <input type="hidden" name="cantidad" value="<?php echo $_POST['cantidad']?>">
       <input type="hidden" name="weight" value="<?php echo $items[7]?>">
@@ -64,9 +64,28 @@ $items = get_product($_POST['id_produit']);
                     <?php endforeach?>
                     </select></td>
           
-      <td><input class ="button" type="submit" name="submit" value="VALIDER"></td>
+      <td><input class ="button" type="submit" name="btnAjouter" value="VALIDER"></td>
       </form> 
-
+    <?php if(isset($_REQUEST["btnAjouter"])): ?>
+        <th scope="row"></th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+   <th scope="row"></th>
+      <td></td>
+      <td></td>
+      <td>TRANSPORT : <strong><?php echo $_POST['trasporteur']?></strong></td>
+      <td><?php echo formatPrice(fraisdePort($_POST['trasporteur'],$items[7],$_POST['cantidad'], Total($items, $_POST['cantidad'])))?></td>
+    </tr>
+    <th scope="row"></th>
+      <td></td>
+      <td></td>
+      <td><strong>Total TCC </strong></td>
+      <td><strong><?php echo formatPrice(Total($items, $_POST['cantidad'] )+ fraisdePort($_POST['trasporteur'],$items[7],$_POST['cantidad'], Total($items, $_POST['cantidad'])))?></strong></td>
+    </tr>
+    <?php endif ?>     
     </tr>
   </tbody>
 </table>

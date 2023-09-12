@@ -58,7 +58,7 @@ function get_transporteurs(){
     ,
     [
       "id" => 515,
-      "nametransport" => "Relais colis"
+      "nametransport" => "Retrai en Drive"
     ]
   ];
   

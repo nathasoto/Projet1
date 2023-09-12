@@ -51,6 +51,9 @@ session_start();
   
 <?php 
 
+  
+
+
 if(isset($_REQUEST["btnAjouter"]) ){//pulsamos en boton 
         
   if(!isset($_SESSION['panier'])){//preguntamos si no hay secion 
@@ -67,22 +70,28 @@ if(isset($_REQUEST["btnAjouter"]) ){//pulsamos en boton
   }
   else{
     $numberProduit = count($_SESSION['panier']);
+       
+    echo  $numberProduit;
 
-    
-    $produit = array (
+    if(array_search($_POST["id_produit"],$_SESSION['panier'][$numberProduit-1])){
 
-      'id_producto' => $_POST["id_produit"],
-      'cant' => $_POST['cantidad']
+        $_SESSION['panier'][$numberProduit-1]['cant'] =  $_SESSION['panier'][$numberProduit-1]['cant'] + $_POST['cantidad'];
 
-     );
-     
-   $_SESSION['panier'][$numberProduit]=$produit;
+    }
 
+    else{
+
+        $produit['id_producto'] = $_POST["id_produit"];
+        $produit['cant'] = $_POST['cantidad'];
+      
+        $_SESSION['panier'][$numberProduit]=$produit;
+
+    }
   }
-  echo '<script>alert("Produit ajoute")</script>';
+echo '<script>alert("Produit ajoute")</script>';
   }
 
 
-print_r($_SESSION["panier"]);
+//print_r($_SESSION["panier"]);
    
 include "templates/footer.php";?>

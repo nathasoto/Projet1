@@ -37,7 +37,12 @@ function Total(array $items, int $cantidad):float{
     return $Total;
 
 }
-function fraisdePort(int $weight,int $cantidad, float $total):float{
+function fraisdePort(string $transporteur ,int $weight,int $cantidad, float $total):float{
+
+if($transporteur === 'Retrai en Drive'){
+  return 0;
+}
+
  $weightTotal = $weight * $cantidad;
   if($weightTotal <= 500){
    return 5;
@@ -48,4 +53,5 @@ function fraisdePort(int $weight,int $cantidad, float $total):float{
   return 0;
   
 }
+
 
