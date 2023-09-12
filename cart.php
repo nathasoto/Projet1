@@ -66,6 +66,7 @@ $items = get_product($_POST['id_produit']);
           
       <td><input class ="button" type="submit" name="submit" value="VALIDER"></td>
       </form> 
+
     </tr>
   </tbody>
 </table>
