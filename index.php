@@ -7,6 +7,10 @@ $URL3= "img/imagen3.jpg";
 //echo " Prix $Produit  = $Prix ";
 
 include "templates/header.php"; 
+include "PDO/database.php"; 
+
+rupture_stock($mysqlConnection); 
+
 ?>
 
 <div id="carouselExampleIndicators" class="carousel slide">
